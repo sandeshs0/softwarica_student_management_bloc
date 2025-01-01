@@ -7,7 +7,7 @@ part 'batch_event.dart';
 part 'batch_state.dart';
 
 class BatchBloc extends Bloc<BatchEvent, BatchState> {
-  BatchBloc() : super(BatchInitial()) {
+  BatchBloc() : super(BatchState.initial()){
     on<LoadBatches>(_onLoadBatches);
     on<AddBatch>(_onAddBatch);
     on<DeleteBatch>(_onDeleteBatch);

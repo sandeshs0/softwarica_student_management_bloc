@@ -119,7 +119,7 @@ class LoginView extends StatelessWidget {
                       key: const ValueKey('registerButton'),
                       onPressed: () {
                         context.read<LoginBloc>().add(
-                              NavigateHomeScreenEvent(
+                          NavigateRegisterScreenEvent(
                                 destination: RegisterView(),
                                 context: context,
                               ),

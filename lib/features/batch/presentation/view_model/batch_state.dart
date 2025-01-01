@@ -1,33 +1,36 @@
 part of 'batch_bloc.dart';
 
-@immutable
-sealed class BatchState extends Equatable {
-  const BatchState();
+
+class BatchState extends Equatable {
+  final List<BatchEntity> batches;
+  final bool isLoading;
+  final String? error;
+
+  const BatchState({
+    required this.batches,
+    required this.isLoading,
+    this.error,
+  });
+
+  factory BatchState.initial() {
+    return BatchState(
+      batches: [],
+      isLoading: false,
+    );
+  }
+
+  BatchState copyWith({
+    List<BatchEntity>? batches,
+    bool? isLoading,
+    String? error,
+  }) {
+    return BatchState(
+      batches: batches ?? this.batches,
+      isLoading: isLoading ?? this.isLoading,
+      error: error,
+    );
+  }
 
   @override
-  List<Object> get props => [];
-}
-
-final class BatchInitial extends BatchState {}
-
-final class BatchLoading extends BatchState {}
-
-final class BatchSuccess extends BatchState {}
-
-final class BatchLoaded extends BatchState {
-  final List<BatchEntity> lstBatches;
-
-  const BatchLoaded(this.lstBatches);
-
-  @override
-  List<Object> get props => [lstBatches];
-}
-
-final class BatchError extends BatchState {
-  final String message;
-
-  const BatchError(this.message);
-
-  @override
-  List<Object> get props => [message];
+  List<Object?> get props => [batches, isLoading, error];
 }
