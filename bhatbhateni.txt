@@ -1,0 +1,47 @@
+Bhatbhatenni
+
+We will use One-Many approach.
+
+Customer
+{
+    id: "123",
+    name: "Sandesh Sapkota",
+    phone: "9888888889",
+    address: Hattiban,
+}
+
+Product:
+{
+    id:"233",
+    name:"Dairy Milk Silk",
+    price:150.12,
+    category: "Grocery",
+}
+
+Staff Document:
+{
+    id:"556",
+    name:"Prajwal Pokhrel",
+}
+
+Bill:
+{
+    id:"B1324",
+    customerId: reference from Customer Document,
+    staffId: reference from Staff Document,
+    date_time: "2024"
+    items: [
+        {
+            productId: reference from Product Id,
+            quantity:2,
+            amt:280
+        },
+        {
+            productId: reference from Product Id,
+            quantity:2,
+            amt: 280
+        },
+    ],
+    total: 560
+}
+
